@@ -11,6 +11,13 @@ pipeline {
                 sh 'docker build -t faso01/liasion-app:latest .'
             }
         }
+        
+    stage('Vérification Liaison') {
+            steps {
+                // On ne remet PAS la commande git ici car Jenkins l'a déjà fait !
+                echo 'La liaison avec GitHub est réussie !'
+                sh 'ls -ala' 
+            }
 
         stage('Push to Docker Hub') {
             steps {
